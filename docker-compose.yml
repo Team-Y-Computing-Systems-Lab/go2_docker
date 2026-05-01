@@ -1,0 +1,27 @@
+services:
+  ros2_foxy:
+    build:
+      context: ./ros2_foxy
+      args:
+        USERNAME: ros
+        USER_UID: 1000
+        USER_GID: 1000
+    container_name: ros2_foxy_go2
+    stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+      - ROS_DOMAIN_ID=0
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - CYCLONEDDS_URI=file:///home/ros/cyclonedds.xml
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.docker.xauth:rw
+      - ./workspace/ros2_foxy:/home/ros/ws_ros2
+      - ./cyclonedds/cyclonedds.xml:/home/ros/cyclonedds.xml:ro
+    working_dir: /home/ros/ws_ros2
