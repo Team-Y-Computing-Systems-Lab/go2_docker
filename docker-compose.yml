@@ -23,5 +23,10 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.docker.xauth:rw
       - ./workspace/ros2_foxy:/home/ros/ws_ros2
+      - ./scripts:/home/ros/ws_ros2/scripts:rw
       - ./cyclonedds/cyclonedds.xml:/home/ros/cyclonedds.xml:ro
+      - unitree_sdk2_install:/opt/unitree_robotics
     working_dir: /home/ros/ws_ros2
+
+volumes:
+  unitree_sdk2_install:
