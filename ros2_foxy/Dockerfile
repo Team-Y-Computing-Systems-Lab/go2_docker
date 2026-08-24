@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -y \
     ros-foxy-robot-state-publisher \
     ros-foxy-turtlesim \
     ros-foxy-rmw-cyclonedds-cpp \
+    ros-foxy-rosidl-generator-dds-idl \
     ros-foxy-demo-nodes-cpp \
     ros-foxy-demo-nodes-py \
  && rm -rf /var/lib/apt/lists/*
