@@ -1,1 +1,9 @@
-workspace/
+workspace/*
+!workspace/humble/
+workspace/humble/*
+!workspace/humble/src/
+!workspace/humble/src/.gitkeep
+workspace/humble/build/
+workspace/humble/install/
+workspace/humble/log/
+workspace/humble/vendor/

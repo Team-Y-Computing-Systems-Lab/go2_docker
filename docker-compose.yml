@@ -1,12 +1,12 @@
 services:
-  ros2_foxy:
+  ros2_humble:
     build:
-      context: ./ros2_foxy
+      context: ./ros2_humble
       args:
         USERNAME: ros
         USER_UID: 1000
         USER_GID: 1000
-    container_name: ros2_foxy_go2
+    container_name: ros2_humble_go2
     stdin_open: true
     tty: true
     network_mode: host
@@ -19,14 +19,16 @@ services:
       - ROS_DOMAIN_ID=0
       - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
       - CYCLONEDDS_URI=file:///home/ros/cyclonedds.xml
+      - UNITREE_GO2_IP=${UNITREE_GO2_IP:-192.168.123.161}
+      - UNITREE_CONTROLLER_IP=${UNITREE_CONTROLLER_IP:-192.168.123.18}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.docker.xauth:rw
-      - ./workspace/ros2_foxy:/home/ros/ws_ros2
-      - ./scripts:/home/ros/ws_ros2/scripts:rw
+      - ./workspace/humble:/home/ros/ws_humble
+      - ./scripts:/home/ros/tools/scripts:rw
       - ./cyclonedds/cyclonedds.xml:/home/ros/cyclonedds.xml:ro
       - unitree_sdk2_install:/opt/unitree_robotics
-    working_dir: /home/ros/ws_ros2
+    working_dir: /home/ros/ws_humble
 
 volumes:
   unitree_sdk2_install:

@@ -1,0 +1,17 @@
+# ROS 2 Humble environment
+source /usr/local/bin/load_go2_env.sh
+
+alias cws='cd /home/ros/ws_humble'
+alias csrc='cd /home/ros/ws_humble/src'
+alias cb='cd /home/ros/ws_humble && colcon build --symlink-install'
+alias cs='source /home/ros/ws_humble/install/setup.bash'
+alias rt='ros2 topic list'
+alias rn='ros2 node list'
+alias re='ros2 topic echo'
+alias go2ping='/home/ros/tools/scripts/check_go2_network.sh'
+alias ta='tmux new-session -A -s go2'
+
+echo "ROS 2 Humble Go2 container loaded."
+echo "ROS_DISTRO=$ROS_DISTRO"
+echo "RMW_IMPLEMENTATION=$RMW_IMPLEMENTATION"
+echo "ROS_DOMAIN_ID=$ROS_DOMAIN_ID"
