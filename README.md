@@ -89,6 +89,7 @@ colcon list
 
 - [WSL + Go2 setup guide](docs/guides/wsl-go2-humble-setup.md)
 - [2D indoor mapping roadmap](docs/learning/2d-indoor-mapping-roadmap.md)
+- [Improvement log and repo notes](docs/guides/repo-improvement-log.md)
 - [Approved design spec](docs/superpowers/specs/2026-08-24-go2-practical-humble-design.md)
 - [Implementation plan](docs/superpowers/plans/2026-08-24-go2-practical-humble-migration.md)
 
